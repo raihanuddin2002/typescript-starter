@@ -1,4 +1,5 @@
 npm init -y
+
 npm i --save-dev typescript ts-node ts-node-dev tsc-alias tsconfig-paths @types/node 
 
 or
@@ -61,3 +62,21 @@ pnpm i -D typescript ts-node ts-node-dev tsc-alias tsconfig-paths @types/node
 **Step 7:** Run and test
 
 **Step 8:** Add a debug launch script `.vscode/launch.json`
+
+```json
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/src/index.ts",
+			"preLaunchTask": "npm: build",
+			"outFiles": ["${workspaceFolder}/dist/**/*.js"]
+		}
+	]
+}
+
+```
